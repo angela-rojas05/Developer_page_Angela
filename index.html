@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primero se pone normalize -->
+    <link rel="preload" href="css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    
+    <!-- Nuestro propio css -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css">
+
+
     <title>Developer page</title>
 </head>
 <body>
     <header>
-        <h1>Ángela Rojas Developer</h1>
+      <h1 class="my-title">Angela Rojas <span>Developer</span></h1>
     </header>
     <nav>
         <a href="#">Inicio</a>
@@ -16,7 +25,7 @@
         <a href="#">Contacto</a>
     </nav>
     <section>
-    <h2>Desarrollador full stack</h2>
+      <h2>Desarrollador full stack</h2>
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="32"
@@ -132,6 +141,35 @@ unicode: "f78e"
 </main>
 <section>
     <h2>Contacto</h2>
+    <form>
+      <fieldset>
+        <legend>Llena tus datos de contacto</legend>
+        <div>
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Nombre completo">
+        </div>
+
+        <div>
+          <label>Teléfono</label>
+          <input type="tel" placeholder="Tu teléfono">
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input type="email" placeholder="Tu correo electrónico">
+        </div>
+
+        <div>
+          <label>Mensaje</label>
+          <textarea></textarea>
+        </div>
+
+        <div>
+          <input type="submit" value="Enviar" />
+        </div>
+
+      </fieldset>
+    </form>
     <footer>
         <p>Todos los derechos reservados ©. Ángela Rojas Dev 2026</p>
     </footer>
