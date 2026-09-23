@@ -1,136 +1,244 @@
+/* ==========================================================================
+   Variables globales
+   ========================================================================== */
 :root {
   --blanco: #ffffff;
   --oscuro: #212121;
   --primario: #ffc107;
-  --secundario: #26939f;
+  --secundario: #1fe1f7c0;
   --gris: #757575;
   --grisClaro: #b6b6b6;
 }
- 
+
+/* ==========================================================================
+   Base / Reset
+   ========================================================================== */
+
 /* Truco para uniformidad de texto entre navegadores */
 html {
   font-size: 62.5%;
 }
+
 body {
   font-size: 16px;
   font-family: "Krub", sans-serif;
-  background-image: linear-gradient (to top, var(--grisClaro) 0%, var(--blanco) 100%);
+  background-image: linear-gradient(to top, var(--blanco) 0%, var(--blanco) 100%);
 }
- 
-/*Tipografía*/
- 
+
+/* ==========================================================================
+   Tipografía
+   ========================================================================== */
 h1 {
   font-size: 3.8rem;
 }
- 
+
 h2 {
   font-size: 2.8rem;
 }
- 
+
 h3 {
   font-size: 1.8rem;
 }
- 
+
 h1,
 h2,
 h3 {
   text-align: center;
 }
- 
+
 .my-title span {
   font-size: 2rem;
 }
- 
+
+/* ==========================================================================
+   Layout / Contenedores
+   ========================================================================== */
+.contenedor {
+  max-width: 120rem; /* 1200 px porque 1 rem = 10px */
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Navegación principal
+   ========================================================================== */
 .navegacion-principal {
   /* Margin es por fuera y padding es por dentro */
   display: flex; /* Flexbox está diseñado para alinear elementos en tus diseños */
-  /* justify-content para FILAS / align-items es para COLUMNAS (flex-direction)*/
+  /* justify-content para FILAS / align-items es para COLUMNAS (flex-direction) */
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   font-weight: bold;
   font-size: 2rem;
-  align-items: center;
 }
- 
+
 @media (min-width: 768px) {
   .navegacion-principal {
     flex-direction: row;
   }
 }
- 
-/* Al poner el cursor en el hipervínculo*/
-.navegacion-principal a:hover {
-  background-color: var(--primario);
-  color: var(--oscuro);
-}
- 
+
 .navegacion-principal a {
   color: var(--blanco);
   text-decoration: none; /* Remueve el estilo subrayado en el texto */
   padding: 1rem;
 }
- 
-.contenedor {
-  max-width: 120rem; /* 1200 pixeles porque 1 rem= 10px */
-  /* margin-top: 0; */
-  /* margin-bottom: 0; */
-  /* margin-right: auto; */
-  /* margin-left: auto; */
-  margin: 0 auto;
+
+/* Al poner el cursor en el hipervínculo */
+.navegacion-principal a:hover {
+  background-color: var(--primario);
+  color: var(--oscuro);
 }
- 
+
 .nav-bg {
   background-color: var(--secundario);
 }
- 
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
 .hero {
-  background-image: url(../img/hero.jpg); /* ../ es para regresar un nivel
-    de directorio ya que la carpeta "img" está afuera de "CSS" */
-  background-repeat: no-repeat; /* Sirve para evitar la repetición de la imagen cuando es pequeña */
-  background-size: cover; /*Sirve para cubir la imagen con todo el tamaño*/
-  height: 450px; /*Alto del elemento hero*/
-  position: relative; /*Para manipular la posición. El padre siempre
-    debe ser relative*/
+  /* ../ es para regresar un nivel de directorio ya que la carpeta "img"
+     está afuera de "CSS" */
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen cuando es pequeña */
+  background-size: cover; /* Cubre la imagen con todo el tamaño */
+  height: 450px;
+  position: relative; /* El padre siempre debe ser relative */
 }
- 
+
 .contenido-hero {
-  position: absolute; /*Para manipular la posición. El hijo siempre
-    debe ser absolute*/
-  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute; /* El hijo siempre debe ser absolute */
   width: 100%;
   height: 100%;
-  /*Alinear vertical y horizontalmente*/
+  background-color: rgba(70, 70, 70, 0.457);
+  /* Alinear vertical y horizontalmente */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
- 
+
 .contenido-hero p,
 .contenido-hero h2 {
   color: var(--blanco);
 }
- 
+
 .ubicacion {
   display: flex;
   align-items: flex-end;
 }
- 
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
 .boton {
-  background-color: var(--secundario);
-  color: var(--blanco);
-  text-transform: uppercase; /* Convertir el texto en mayúsculas */
-  text-decoration: none;
-  font-weight: bold;
+  width: 90%;
   padding: 1rem 3rem;
   margin-top: 3rem;
   border-radius: 0.5rem;
-  width: 90%;
+  background-color: var(--secundario);
+  color: var(--blanco);
+  text-transform: uppercase; /* Convierte el texto en mayúsculas */
+  text-decoration: none;
+  font-weight: bold;
   text-align: center;
+  border: none; /* Remueve el borde del botón en formulario */
 }
- 
+
 @media (min-width: 768px) {
   .boton {
     width: auto;
   }
+}
+
+.boton:hover {
+  cursor: pointer; /* Cambia el cursor a una manita */
+}
+/* ==========================================================================
+    Mis Servicios
+   ========================================================================== */
+   @media (min-width: 768px) {
+    .servicios {
+      display: grid; /* Grid es un sistema de diseño bidimensional que permite organizar elementos en filas y columnas */
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+      /* grid-template-columns:  1fr 1fr 1fr;*/
+       /* grid-template-columns:  33.33% 33.33% 33.33%;*/
+    }
+}
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centrar el contenido de cada servicio */
+}
+
+.servicio h3 {
+  color: var(--secundario);
+  font-weight: normal;
+}
+
+.servicio p {
+  /*Interlineado de texto*/
+  line-height: 1.5;
+  text-align: center;
+}
+
+.servicio .iconos {
+  height: 15rem; /* Altura de los iconos */
+  width: 15rem; /* Ancho de los iconos */
+  background-color: var(--primario);
+  border-radius: 50%; /* Hace que el contenedor sea circular */
+  display: flex;
+  justify-content: space-evenly; /* Distribuye los iconos de manera uniforme */
+  align-items: center; /* Centra los iconos verticalmente */
+}
+
+/* ==========================================================================
+   Contactos
+   ========================================================================== */
+.formulario {
+  background-color: var(--gris);
+  /*ahora MQ*/
+  /*¿que es mas pequeño? ¿el 60 rem o el 100% del ancho?*/
+  /* si tengo un smartphone de 488px, toma 100% */
+  width: min(60, 100%);
+  margin: 0 auto; /* Centra el formulario horizontalmente */
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.formulario fieldset {
+ border: none; /* Remueve el borde del fieldset */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espacio entre los elementos del formulario */
+}
+.formulario legend {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase; /* Convierte el texto en mayúsculas */
+  color: var(--primario);
+}
+
+.campo {
+  margin-bottom: 1rem; /* Espacio entre los campos del formulario */
+}
+.campo label {
+  display: block; /* Hace que el label ocupe toda la línea */
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Espacio entre el label y el input */
+  color: var(--blanco);
+}
+
+.input-text{
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: none; /* Remueve el borde del input */
+}
+
+.campo textarea {
+  height: 20rem; /* Altura del textarea */
 }
